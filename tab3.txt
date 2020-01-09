@@ -1,0 +1,48 @@
+accounts
+course_lists
+scores - 성적 Collection: 
+taken_course
+----------------------------------------------------------------------------
+
+1. 첫 화면 - 성적입력
+
+show_taken_list
+	req				res
+GET  /taken_course/{username} 	{user_id의 수강과목}
+				을 뷰에서 보여주고
+				성적을 입력하면
+
+
+update_score_prop
+PUT /score/new/{course_name}/{score}
+			 		X
+				         로그 확인
+				(서버: 1.score 에 cnt+1
+				2. score에서 cnt 읽은 후 비율 계산
+				3. score에 비율 update)
+				
+----------------------------------------------------------------------------
+show_top3 - [score가 A인 것만 filter -> sort]
+2. Top3
+
+	req				res
+GET  /proportion 파라미터 없음	리스트 response.body 인덱스 0~2
+				(서버: proportion에서 
+				A비율 내림차순 리턴)
+ 
+
+----------------------------------------------------------------------------
+search_result [score DB : course_name으로 filter => 
+
+3. 과목 성적 검색
+	req				res
+GET /proporsion/ {course_name}	        리스트(proporsion 
+				        해당과목 score_A,B,C값)
+
+
+----------------------------------------------------------------------------
+course_list
+4. 모든 과목 검색
+GET /course_list	: 모든 과목 리스트 보여줌
+
+
